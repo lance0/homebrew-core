@@ -1,8 +1,8 @@
 class NodeAT24 < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v24.22.0/node-v24.22.0.tar.xz"
-  sha256 "41f97cff2c666f1f8293dc5f85c65e8dd605c16b43fd9febd49ede32ee1e0329"
+  url "https://nodejs.org/dist/v24.22.1/node-v24.22.1.tar.xz"
+  sha256 "4f5379796280cdaeb0c2f358fd04b6a16cc4fb7dfa83b5a8c91a9d963b435231"
   license "MIT"
   compatibility_version 1
 
