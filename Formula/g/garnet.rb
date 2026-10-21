@@ -28,6 +28,17 @@ class Garnet < Formula
     depends_on "libaio"
   end
 
+  allow_network_access! :test
+
+  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+
+  def fetch
+    system "dotnet", "restore", "main/GarnetServer/GarnetServer.csproj"
+    cd "libs/native/bftree-garnet" do
+      system "cargo", "fetch", *std_cargo_fetch_args
+    end
+  end
+
   def install
     # Ignore dotnet version specification and use homebrew one
     rm "global.json"
@@ -53,7 +64,6 @@ class Garnet < Formula
       end
     end
 
-    dotnet = Formula["dotnet"]
     # .NET 10 flags IL3000 here even though Garnet falls back to AppContext.BaseDirectory.
     args = %W[
       --configuration Release
